@@ -1,0 +1,146 @@
+2. L’objectiu d’aquesta tasca és aprendre a transformar un document XML en un document de text. Segons el document notes-departament.xml:
+    
+    Els cal una llista de notes del mòdul de Llenguatge de marques que tingui aquesta forma:
+"
+        Notes de //Llenguatges de marques// 
+        --------------------------------
+        Federicu Garcia : 6
+        Filomenu Pi : 10
+        Manolito Puigdevall : 2 
+        Bernat Alegria : 5 
+        Filibert Blanch : 7 
+        Magdalena Roig : 5
+"
+
+3. Tenim un fitxer XML que conté informació de les notes finals de diferents alumnes i de diferents cicles, anomenat notes-centre.xml, i se us demana que genereu les expressions XPath que responen les preguntes següents:
+
+    "1) Quins cicles formatius s’imparteixen en l’institut?"
+        Comanda: 
+            "//cicle" o "//cicle/text()"
+        Resultat: 
+            //<cicle id="ASIX" grau="Superior">Administracio de Sistemes Informatics i Xarxes</cicle>
+            //<cicle id="SMX" grau="Mig">Sistemes Microinformatics i Xarxes</cicle>
+            //<cicle id="GA" grau="Mig">Gestio Administrativa</cicle>
+            //<cicle id="AF" grau="Superior">Administracio i Finances</cicle>
+
+    "2) Quins cicles formatius de grau mitjà s’imparteixen en l’institut?" 
+        Comanda: 
+            "//cicle[@grau='Mig']"
+            "//cicle[@grau='Mig']/text()"
+        Resultat:
+            //<cicle id="SMX" grau="Mig">Sistemes Microinformatics i Xarxes</cicle>
+            //<cicle id="GA" grau="Mig">Gestio Administrativa</cicle>
+
+    "3) Quins són els noms dels alumnes suspesos?"
+        Comanda: 
+            "//alumne[@aprovat='NO']/nom"
+            "//alumne[@aprovat='NO']/nom/text()"
+        Resultat:
+            //<nom>Albert Bru</nom>
+            //<nom>Santiago Rabassa</nom>
+            //<nom>Jaume Capmany</nom>
+            //<nom>Samuel Barnadas</nom>
+            //<nom>Juanjo Roig</nom>
+            //<nom>Judith Gonz&#xE1;lez</nom>
+            //<nom>Gori Puig</nom>
+
+    "4) Quantes dones cursen el cicle d’ASIX?"
+        Comanda: 
+            "count(//classe[@nom='ASIX']/alumne[genere='Dona'])"
+        Resultat: 
+            1
+
+    "5) Quins alumnes suspesos tenen un compte a Hotmail?"
+        Comanda: 
+            "//alumne[@aprovat='NO'][contains(email, 'hotmail.com')]/nom"
+            "//alumne[@aprovat='NO'][contains(email, 'hotmail.com')]/nom/text()"
+        Resultat:
+            //<nom>Juanjo Roig</nom>
+            //<nom>Gori Puig</nom>
+
+    "6) Quina és la llista de classe d’SMX?"
+        Comanda: 
+            "(//classe[@nom='ASIX']/alumne/nom)"
+            "(//classe[@nom='ASIX']/alumne/nom/text())"
+        Resultat:
+            //<nom>Jaume Capmany</nom>
+            //<nom>Mohamed Polih</nom>
+            //<nom>Juan Perez</nom>
+            //<nom>Filibert Puig</nom>
+            //<nom>Bernat Alegria</nom>
+            //<nom>Samuel Barnadas</nom>
+            //<nom>Felip Marti</nom>
+            //<nom>Juanjo Roig</nom>
+            //<nom>Magdalena Serra</nom>
+    "7) En quins cicles hi ha alumnes que han tret un 10?"
+            Comanda:
+                "//classe/alumne[nota='10']/../@nom"
+                "//cicle[@id='//classe/alumne[nota='10']/../@nom']/text()"
+            Resultat:
+                //nom="ASIX" nom="AF"
+
+                //Administracio de Sistemes Informatics i Xarxes
+                //Administracio i Finances
+
+    "8) Quants alumnes han aprovat ASIX?"
+            Comanda:
+                "count(//class[@nom='ASIX']/alumne[@aprovat='SI'])"
+            Resultat:
+                6
+
+    "9) Quin percentatge d’aprovats té el centre?"
+            Comanda:
+                "count(//classe/alumne[@aprovat='SI']) div count(//classe/alumne) * 100"
+            Resultat:
+                74.0741
+
+
+4. En la lliga dels Rovellons s’emmagatzemen els resultats del campionat en un document XML, lligaR-1.xml. A partir d’aquest fitxer es volen obtenir tota una sèrie de respostes a partir d’expressions XPath:
+
+    "1) Quants partits han jugat els Vermells?"
+        Comanda:
+            "count(//partit/equip[nom='Vermells'])"
+        Resultat:
+            6
+    "2) Quins partits han jugat a casa els Blancs?"
+        Comanda:
+            "count(//parti/equip[@juga='local'][nom='Blancs'])"
+        Resultat:
+            3
+
+    "3) Quants jugadors han marcat gols abans de la mitja part (minut 45) tot jugant com a locals? "
+        Comanda:
+            "count(//part//equip[@juga='local']/gols/jugador[@minut<='45'])"
+        Resultat:
+            10
+            
+    "4) Quants partits en els quals jugaven els Blancs han quedat empatats?"
+        Comanda:
+            "count(//partit[equip[1]/resultat = equip[2]/resultat]/equip[nom='Blancs'])"
+        Resultat:
+            3
+            
+    "5) En quines jornades els Verds han jugat a casa?"
+        Comanda:
+            "//equip[@juga='local'][nom='Verds']/../../@num"
+        Resultat:
+            //num="1" num="3" num="5"
+            
+    "6) En quina jornada s’han fet més gols?"
+        Comanda:
+            
+        Resultat:
+
+            
+    "7) Quina és la mitjana de gols per partit dels Vermells?"
+        Comanda:
+            "count(//equip[nom='Vermells']/gols/jugador) div count(//equip[nom='Vermells'])"
+        Resultat:
+            2.5
+            
+    "8) Quants punts han fet els Blaus?"
+        Comanda:
+            "count(//partit/equip[nom'Blaus'])*3 - count(//equip[nom='Blaus' and resultat = min(./../equip/resultat)])*3 + count(//partit[equip[1]/resultat = equip[2]/resultat]/equip[nom='Blancs'])"
+        Resultat:
+            9
+            
