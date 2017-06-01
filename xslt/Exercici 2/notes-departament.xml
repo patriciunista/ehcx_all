@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<moduls>
+	<modul nom="LDM">
+		<alumnes>
+			<alumne nom="Federicu Garcia" nota="6"/>
+			<alumne nom="Filomenu Pi" nota="10"/>
+			<alumne nom="Manolito Puigdevall" nota="2"/>
+			<alumne nom="Bernat Alegria" nota="5"/>
+			<alumne nom="Filibert Blanch" nota="7"/>
+			<alumne nom="Magdalena Roig" nota="5"/>
+		</alumnes>
+	</modul>
+</moduls>

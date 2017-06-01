@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<contactes>
+	<contacte>
+		<nom>Joan Palà</nom>
+		<relacio>Director</relacio>
+		<data>21 de gener de 1969</data>
+		<adreses>
+			<adresa tipus="professional">psg. pere III, 14-16, Manresa</adresa>
+			<adresa tipus="personal">c/pau,8, Navàs</adresa>
+		</adreses>
+	</contacte>
+	<contacte>
+		<nom>Mireia Sala</nom>
+		<relacio>Familiar</relacio>
+		<data>21 de març 1975</data>
+		<adreses>
+			<adresa tipus="professional">psg. industria, 14-16, Manresa</adresa>
+			<adresa tipus="personal">c/sol,81, Sallent</adresa>
+		</adreses>
+	</contacte>
+</contactes>
