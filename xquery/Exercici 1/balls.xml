@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<balls>
+	<ball id="1">
+		<nom>Tango</nom>
+		<preu quota="mensual" moneda="euro">27</preu>
+		<places>20</places>
+		<inici>01/12/2012</inici>
+		<fi>30/12/2012</fi>
+		<professor>Robert Garcia</professor>	
+		<sala>1</sala>
+	</ball>
+	<ball id="2">
+		<nom>cha-cha-cha</nom>
+		<preu quota="trimestral" moneda="euro">80</preu>
+		<places>18</places>
+		<inici>01/02/2013</inici>
+		<fi>30/03/2013</fi>
+		<professor>Miriam Santaularia</professor>	
+		<sala>2</sala>
+	</ball>
+	<ball id="3">
+		<nom>Rock</nom>
+		<preu quota="menual" moneda="euro">30</preu>
+		<places>15</places>
+		<inici>01/08/2012</inici>
+		<fi>30/08/2012</fi>
+		<professor>Laura Bosch</professor>	
+		<sala>1</sala>
+	</ball>
+	<ball id="4">
+		<nom>Bals</nom>
+		<preu quota="mensual" moneda="euro">40</preu>
+		<places>25</places>
+		<inici>01/12/2012</inici>
+		<fi>30/12/2012</fi>
+		<professor>Robert Garcia</professor>
+		<sala>3</sala>
+		</ball>
+<ball id="4"><nom>Tango</nom><preu quota="mensual" moneda="euro">27</preu><places>20</places><inici>01/12/2012</inici><fi>30/12/2012</fi><professor>Robert Garcia</professor><sala>1</sala></ball></balls>
